@@ -1,0 +1,78 @@
+---
+import Icon from "@components/Icon.astro";
+---
+
+<section class="focus">
+	<h1>Distraction-Free Focus</h1>
+	<div class="features-container">
+		<div class="feature">
+			<h1><Icon name="close" size="1lh" />Ads</h1>
+			<p>
+				Experience a completely ad-free environment: no banners, no pop-ups, and
+				no sponsored interruptions. Litora keeps your workspace clean so your
+				mind stays on the task.
+			</p>
+		</div>
+		<div class="feature">
+			<h1><Icon name="close" size="1lh" />Logins</h1>
+			<p>
+				Jump straight into mixing—no account, no email, no password. Litora’s
+				zero-signup policy means you can start building your perfect soundscape
+				in seconds.
+			</p>
+		</div>
+		<div class="feature">
+			<h1><Icon name="close" size="1lh" />Interruptions</h1>
+			<p>
+				Enjoy an uninterrupted session with no hidden paywalls or forced
+				updates. Litora runs smoothly in your browser, letting you focus on what
+				matters without unexpected breaks.
+			</p>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section.focus {
+		padding-block: 100px;
+
+		& > h1 {
+			font-size: 2.5em;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+	}
+
+	.features-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
+		gap: 15px;
+
+		& > .feature {
+			padding: 20px;
+			background-color: rgb(13, 13, 13);
+			border-radius: 10px;
+			border: 1px solid rgb(30, 30, 30);
+
+			& > h1 {
+				font-size: 1.7em;
+				display: flex;
+				align-items: center;
+				gap: 7px;
+				margin-bottom: 10px;
+			}
+
+			& > p {
+				line-height: 2;
+			}
+		}
+	}
+
+	@media (width <= 350px) {
+		section:is(.focus) > .features-container > .feature {
+			h1 {
+				font-size: 1.3em;
+			}
+		}
+	}
+</style>

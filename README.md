@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# 📖 Litora Site
 
-```sh
-npm create astro@latest -- --template basics
-```
+[https://github.com/Litora/site](https://github.com/Litora/site)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**The Sound of Productivity**  
+Mix and match high-quality ambient sounds to boost your concentration and calm your mind.
 
-## 🚀 Project Structure
+### 🎯 Target Audience
 
-Inside of your Astro project, you'll see the following folders and files:
+Primarily designed for students, but also ideal for anyone seeking a customizable audio environment to focus, relax, or study.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+### 🚀 Features
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **Multi-track Mixer**  
+  Play and layer multiple ambient sounds simultaneously (rain, sea, birds, café, flight…).
+- **Individual Volume Controls**  
+  Fine-tune each sound with its own slider to craft the perfect soundscape.
+- **Zero Setup**  
+  Instant access—no accounts, no sign-ups, no distractions.
+- **Dark-mode UI**  
+  Minimalist, modern design with a solid-white “wave” logo and bold **Litora** branding.
 
-## 🧞 Commands
+### 🛠️ Technology Stack
 
-All commands are run from the root of the project, from a terminal:
+- **Framework:** Astro (TypeScript)
+- **Islands Architecture:** React
+- **Audio Processing:** FFmpeg
+- **Icons:** Google Material Symbols (TTF via `<link href>`)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### ☁️ Deployment
 
-## 👀 Want to learn more?
+Hosted on Cloudflare Pages for fast global performance and zero-config CI/CD.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### 🤝 Contributing
+
+Contributions are very welcome!
+
+- Open an **Issue** to report bugs or suggest new features.
+- Submit a **Pull Request** with your enhancements or UI improvements.

@@ -1,0 +1,68 @@
+---
+import Effect from "@components/Effect";
+import { ambientSounds } from "src/lib/ambient";
+---
+
+<section id="mixer">
+	<div class="box">
+		<h1>Craft Your Space</h1>
+		<p>
+			Select the sounds you like, then adjust the volume for each one. Find the
+			perfect combination to help you focus.
+		</p>
+		<div class="effect-container">
+			{
+				ambientSounds.map((ambient, index) => (
+					<Effect
+						client:load
+						iconName={ambient.iconName}
+						effectTitle={ambient.effectTitle}
+						playlistUrl={ambient.playListUrl}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section > .box {
+		h1 {
+			margin-bottom: 7px;
+		}
+
+		p {
+			margin-bottom: 7px;
+		}
+	}
+
+	section > .box > .effect-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 19ch), 1fr));
+		gap: 30px;
+		margin-top: 20px;
+	}
+
+	@media (width <= 670px) {
+		section:is(#mixer) {
+			padding: 30px 0px;
+		}
+
+		section:is(#mixer) > .box {
+			padding: 50px 30px;
+			border: none;
+		}
+		
+		h1 {
+			letter-spacing: .06em;
+		}
+
+		p {
+			line-height: 1.6lh;
+		}
+
+		div:is(.effect) > .icon-container {
+			font-size: 7em;
+		} 
+	}
+</style>

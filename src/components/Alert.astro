@@ -1,0 +1,89 @@
+---
+import Icon from "./Icon.astro";
+
+type AlertType = "error" | "success" | "info";
+
+interface Props {
+	type: AlertType;
+	message: string;
+}
+
+const { type, message } = Astro.props;
+const alertDictionary = {
+	error: {
+		iconName: "error",
+		title: "Error",
+	},
+	success: {
+		iconName: "check_circle",
+		title: "Success",
+	},
+	info: {
+		iconName: "info",
+		title: "Info",
+	},
+} as const;
+const alertTemplate = alertDictionary[type];
+---
+
+<div class={`alert ${type}`}>
+	<button><Icon name="close" size="20px" block /></button>
+	<div class="title">
+		<Icon name={alertTemplate.iconName} size="1lh" /><span
+			>{alertTemplate.title}</span
+		>
+	</div>
+	<div class="message">{message}</div>
+</div>
+
+<style lang="scss">
+	.alert {
+		background: rgb(13, 13, 13);
+		max-width: 30ch;
+		border-radius: 10px;
+		padding: 20px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.alert > .title {
+		color: var(--alert-color);
+		font-size: 1.2em;
+		display: flex;
+		align-content: center;
+		gap: 0.2em;
+		margin-bottom: 5px;
+	}
+
+	button {
+		border: none;
+		background: transparent;
+		color: rgba(255, 255, 255, 0.1);
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: color 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.3);
+		}
+	}
+
+	.alert {
+		&:is(.error) {
+			--alert-color: crimson;
+		}
+		&:is(.success) {
+			--alert-color: greenyellow;
+		}
+		&:is(.info) {
+			--alert-color: dodgerblue;
+		}
+	}
+</style>

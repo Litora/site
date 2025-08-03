@@ -1,0 +1,27 @@
+<button><slot>Button</slot></button>
+
+<style lang="scss">
+	button {
+		background-color: #0064ff;
+		border: none;
+		padding: 9px 20px;
+		font-size: 1em;
+		letter-spacing: 0.06em;
+		margin-block: 10px;
+		border-radius: 7px;
+		color: white;
+		box-shadow: 0px 0px 20px rgba(0, 119, 255, 0.3);
+		cursor: pointer;
+		transition:
+			box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+			transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&:hover {
+			box-shadow: 0px 0px 20px rgba(0, 119, 255, 0.6);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+</style>

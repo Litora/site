@@ -1,0 +1,62 @@
+---
+import Button from "@components/Button.astro";
+---
+
+<section class="hero">
+	<h1>The Sound of Productivity</h1>
+	<p>
+		Mix and match high-quality ambient sounds to boost your concentration and
+		calm your mind.
+	</p>
+	<div class="button-container">
+		<a href="/#mixer"><Button>Get started</Button></a>
+	</div>
+</section>
+
+<style lang="scss">
+	section.hero {
+		padding-block: 100px;
+		padding-inline: 40px;
+		display: grid;
+		place-items: center;
+		text-align: center;
+		gap: 10px;
+
+		h1 {
+			font-size: 3.5em;
+		}
+	}
+
+	@media (width <= 1000px) {
+		section:is(.hero) {
+			gap: 7px;
+			place-items: unset;
+			text-align: initial;
+
+			h1 {
+				font-size: 2.7em;
+			}
+		}
+	}
+	@media (width <= 450px) {
+		section:is(.hero) {
+			display: block;
+			gap: unset;
+			padding-inline: 20px;
+
+			h1 {
+				font-size: 2.3em;
+				margin-bottom: 7px;
+			}
+
+			p {
+				margin-bottom: 5px;
+				line-height: 1.7;
+			}
+
+			a > :global(button) {
+				padding: 15px 25px;
+			}
+		}
+	}
+</style>

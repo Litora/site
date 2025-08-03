@@ -1,0 +1,109 @@
+/* Main styles */
+
+@font-face {
+	font-family: "Libre Franklin";
+	src: url(/fonts/libre_franklin/librefranklin-variablefont_wght.ttf);
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url(/fonts/open_sans/opensans-variablefont_wdth,wght.ttf);
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+::selection {
+	background-color: rgba(0, 119, 255, 0.6);
+}
+
+html {
+	scroll-padding-top: 40px;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: rgb(16, 16, 16);
+	background-image: url(/white-stripes.svg);
+	background-position-x: 150px;
+	background-position-y: 119px;
+	background-attachment: fixed;
+	background-size: 91px;
+	color: rgb(220, 220, 220);
+	font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Libre Franklin", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: white;
+	font-weight: 900;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns:
+		1fr
+		min(1200px, 100%)
+		1fr;
+
+	& > * {
+		grid-column: 2;
+	}
+
+	& > .full-bleed {
+		width: 100%;
+		grid-column: 1 / 4;
+	}
+}
+
+main.wrapper > section {
+	padding: 30px 20px;
+
+	h1 {
+		font-size: 2em;
+	}
+
+	& > .box {
+		border: 1px solid rgb(30, 30, 30);
+		background-color: rgb(20, 20, 20);
+		border-radius: 10px;
+		padding: 30px;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+p {
+	line-height: 1.2lh;
+}
+
+.material-symbols-outlined {
+	font-family: "Material Symbols Outlined";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	direction: ltr;
+	-webkit-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	user-select: none;
+}

@@ -1,0 +1,52 @@
+---
+
+---
+
+<nav>
+	<div>
+		<span class="logo" style="display: block;"></span>
+    <ul>
+      <li><a href="/#quote">About</a></li>
+      <li><a href="/#mixer">Sounds</a></li>
+      <!-- <li><a href="/">Feedback</a></li> -->
+      <li><a href="https://github.com/Litora/site" target="_blank">GitHub</a></li>
+    </ul>
+	</div>
+</nav>
+
+<style lang="scss">
+	nav {
+		display: grid;
+		grid-template-columns:
+			1fr
+			min(1200px, 100%)
+			1fr;
+
+		& > * {
+			grid-column: 2;
+		}
+	}
+
+  nav > div {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 30px 20px;
+  }
+
+  nav > div > span.logo {
+    background-image: url(/litora-icon.svg);
+    aspect-ratio: 462/310;
+    background-size: cover;
+  }
+
+  nav > div > ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+
+    li {
+      line-height: 1.2lh;
+    }
+  }
+</style>

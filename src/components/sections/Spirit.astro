@@ -1,0 +1,37 @@
+<section class="spirit">
+	<div class="quote-container">
+		<blockquote>
+			“Silence is not the absence of something but the presence of everything.”
+		</blockquote>
+		<cite>— Gordon Hempton</cite>
+	</div>
+</section>
+
+<style lang="scss">
+	section.spirit {
+    padding-block: 100px;
+    
+		.quote-container {
+			padding: 20px;
+			background: rgb(13, 13, 13);
+      border: 1px solid rgb(30, 30, 30);
+      border-radius: 10px;
+      max-width: 80ch;
+      margin: 0 auto;
+		}
+
+    blockquote {
+      font-size: 2em;
+      letter-spacing: .04em;
+      font-weight: 100;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+	}
+
+  @media (width <= 600px) {
+    div:is(.quote-container) > blockquote {
+      font-size: 1.5em;
+    }
+  }
+</style>
