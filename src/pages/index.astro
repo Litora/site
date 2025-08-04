@@ -7,7 +7,56 @@ import FocusSection from "@components/sections/Focus.astro";
 import SpiritSection from "@components/sections/Spirit.astro";
 ---
 
-<Layout>
+<Layout
+	title="Litora - The Sound of Productivity"
+	description="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace.">
+	<Fragment slot="head">
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="Litora - The Sound of Productivity" />
+
+		<!-- Viewport and Charset -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- SEO Keywords -->
+		<meta
+			name="keywords"
+			content="ambient sounds, productivity, sound mixer, focus, study, relax, rain noise, café ambience, nature audio, free soundboard"
+		/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://litora.rest/" />
+		<meta property="og:title" content="Litora - The Sound of Productivity" />
+		<meta
+			property="og:description"
+			content="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace."
+		/>
+		<meta
+			property="og:image"
+			content="https://litora.rest/litora-og-image.png"
+		/>
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://litora.rest/" />
+		<meta name="twitter:title" content="Litora - The Sound of Productivity" />
+		<meta
+			name="twitter:description"
+			content="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://litora.rest/litora-og-image.png"
+		/>
+
+		<!-- Theme Color -->
+		<meta name="theme-color" content="#101010" />
+		
+		<!-- Author -->
+		<meta name="author" content="Litora Project" />
+	</Fragment>
+
 	<main class="wrapper">
 		<HeroSection />
 		<MixerSection />

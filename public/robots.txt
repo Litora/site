@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /litora-og-image.png
+
+Disallow: /fonts/
+Disallow: /quote/
+Disallow: /litora-icon.svg
+Disallow: /litora-logo.svg
+Disallow: /white-stripes.svg
