@@ -1,37 +1,21 @@
 ---
-import Icon from "./Icon.astro";
+import CloseIcon from "#assets/icons/close.svg";
 
 type AlertType = "error" | "success" | "info";
 
 interface Props {
 	type: AlertType;
+	title: string;
 	message: string;
 }
 
-const { type, message } = Astro.props;
-const alertDictionary = {
-	error: {
-		iconName: "error",
-		title: "Error",
-	},
-	success: {
-		iconName: "check_circle",
-		title: "Success",
-	},
-	info: {
-		iconName: "info",
-		title: "Info",
-	},
-} as const;
-const alertTemplate = alertDictionary[type];
+const { type, title, message } = Astro.props;
 ---
 
 <div class={`alert ${type}`}>
-	<button><Icon name="close" size="20px" block /></button>
+	<button><CloseIcon width="20px" height="20px" /> </button>
 	<div class="title">
-		<Icon name={alertTemplate.iconName} size="1lh" /><span
-			>{alertTemplate.title}</span
-		>
+		<slot /><span>{title}</span>
 	</div>
 	<div class="message">{message}</div>
 </div>

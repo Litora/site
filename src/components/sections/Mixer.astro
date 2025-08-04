@@ -1,6 +1,14 @@
 ---
 import Effect from "@components/Effect";
-import { ambientSounds } from "src/lib/ambient";
+// import { ambientSounds } from "src/lib/ambient";
+import RainyIcon from "#assets/icons/rainy.svg";
+import FireplaceIcon from "#assets/icons/fireplace.svg";
+import AirplaneIcon from "#assets/icons/flight.svg";
+import CafeIcon from "#assets/icons/local-cafe.svg";
+import LeafIcon from "#assets/icons/nest-eco-leaf.svg";
+import BirdIcon from "#assets/icons/raven.svg";
+import TrainIcon from "#assets/icons/train.svg";
+import WavesIcon from "#assets/icons/waves.svg";
 ---
 
 <section id="mixer">
@@ -11,19 +19,44 @@ import { ambientSounds } from "src/lib/ambient";
 			perfect combination to help you focus.
 		</p>
 		<div class="effect-container">
-			{
-				ambientSounds.map((ambient, index) => (
-					<Effect
-						client:load
-						iconName={ambient.iconName}
-						effectTitle={ambient.effectTitle}
-						playlistUrl={ambient.playListUrl}
-					/>
-				))
-			}
+			<Effect client:load effectTitle="Rain" playlistId="rain"
+				><RainyIcon />
+			</Effect>
+			<Effect client:load effectTitle="Flight" playlistId="airplane"
+				><AirplaneIcon />
+			</Effect>
+			<Effect client:load effectTitle="Cafe" playlistId="coffee"
+				><CafeIcon />
+			</Effect>
+			<Effect client:load effectTitle="Sea" playlistId="sea"
+				><WavesIcon />
+			</Effect>
+			<Effect client:load effectTitle="Birds" playlistId="birds"
+				><BirdIcon />
+			</Effect>
+			<Effect client:load effectTitle="Crickets" playlistId="crickets">
+				<LeafIcon />
+			</Effect>
+			<Effect client:load effectTitle="Fireplace" playlistId="fire">
+				<FireplaceIcon />
+			</Effect>
+			<Effect client:load effectTitle="Train" playlistId="train">
+				<TrainIcon />
+			</Effect>
 		</div>
 	</div>
 </section>
+
+<style lang="scss" is:inline>
+	section:is(#mixer) > .box > .effect-container .effect > .icon-container {
+		text-align: center;
+
+		svg {
+			width: 4.5lh;
+			height: 4.5lh;
+		}
+	}
+</style>
 
 <style lang="scss">
 	section > .box {
@@ -52,9 +85,9 @@ import { ambientSounds } from "src/lib/ambient";
 			padding: 50px 30px;
 			border: none;
 		}
-		
+
 		h1 {
-			letter-spacing: .06em;
+			letter-spacing: 0.06em;
 		}
 
 		p {
@@ -63,6 +96,6 @@ import { ambientSounds } from "src/lib/ambient";
 
 		div:is(.effect) > .icon-container {
 			font-size: 7em;
-		} 
+		}
 	}
 </style>

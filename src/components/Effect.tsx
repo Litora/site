@@ -3,18 +3,17 @@ import Hls from "hls.js";
 import $ from "jquery";
 import VolumeSlider from "./VolumeSlider";
 import "./Effect.scss";
-import type { IconName } from "src/lib/iconList";
 
 interface EffectProps {
-	iconName: IconName;
 	effectTitle: string;
-	playlistUrl: string;
+	playlistId: string;
+	children: any;
 }
 
 export default function Effect({
-	iconName,
 	effectTitle,
-	playlistUrl,
+	playlistId,
+	children,
 }: EffectProps) {
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 	const hlsRef = useRef<Hls | null>(null);
@@ -28,6 +27,8 @@ export default function Effect({
 	const stableVolumeRef = useRef<number>(0);
 	const lastSliderUpdate = useRef<number | null>(null);
 	const playTriggeredRef = useRef(false);
+
+	const playlistUrl = `https://raw.githubusercontent.com/Litora/ambient/refs/heads/main/${playlistId}/chunks/${playlistId}_playlist.m3u8`;
 
 	// Función de comparación segura de volumen
 	function volumesDiffer(a: number, b: number): boolean {
@@ -168,11 +169,7 @@ export default function Effect({
 	return (
 		<div className="effect">
 			<div className="icon-container">
-				<span
-					className="material-symbols-outlined"
-					style={{ fontSize: "100%" }}>
-					{iconName}
-				</span>
+				{children}
 			</div>
 			<h1 className="effect-title">{effectTitle}</h1>
 			<div className="audio-container">

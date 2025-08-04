@@ -13,7 +13,7 @@
 		rgba(255, 255, 255, 0.05) 0% 50%,
 		transparent 50% 100%
 	);
-	background-size: 10%;
+	background-size: calc(100% / 10.5);
 	position: relative;
 	flex-grow: 1;
 	height: 4px;
