@@ -25,7 +25,7 @@ Primarily designed for students, but also ideal for anyone seeking a customizabl
 - **Framework:** Astro (TypeScript)
 - **Islands Architecture:** React
 - **Audio Processing:** FFmpeg
-- **Icons:** Google Material Symbols (TTF via `<link href>`)
+- **Icons:** Google Material Symbols (imported as SVGs)
 
 ### ☁️ Deployment
 
