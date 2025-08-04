@@ -1,14 +1,15 @@
 ---
+import LitoraIcon from "#assets/litora-icon.svg";
+
 const { navigation } = Astro.locals.texts;
 ---
 
 <nav>
 	<div>
-		<span class="logo" style="display: block;"></span>
+		<LitoraIcon style={"height: 1lh; width: auto; aspect-ratio: 462/310"} />
 		<ul>
 			<li><a href="/#quote">{navigation.aboutText}</a></li>
 			<li><a href="/#mixer">{navigation.soundsText}</a></li>
-			<!-- <li><a href="/">Feedback</a></li> -->
 			<li>
 				<a href="https://github.com/Litora/site" target="_blank"
 					>{navigation.githubText}</a
@@ -36,12 +37,7 @@ const { navigation } = Astro.locals.texts;
 		gap: 10px;
 		justify-content: space-between;
 		padding: 30px 20px;
-	}
-
-	nav > div > span.logo {
-		background-image: url(/litora-icon.svg);
-		aspect-ratio: 462/310;
-		background-size: cover;
+		align-items: center;
 	}
 
 	nav > div > ul {
