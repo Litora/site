@@ -1,12 +1,20 @@
+---
+const { navigation } = Astro.locals.texts;
+---
+
 <nav>
 	<div>
 		<span class="logo" style="display: block;"></span>
-    <ul>
-      <li><a href="/#quote">About</a></li>
-      <li><a href="/#mixer">Sounds</a></li>
-      <!-- <li><a href="/">Feedback</a></li> -->
-      <li><a href="https://github.com/Litora/site" target="_blank">GitHub</a></li>
-    </ul>
+		<ul>
+			<li><a href="/#quote">{navigation.aboutText}</a></li>
+			<li><a href="/#mixer">{navigation.soundsText}</a></li>
+			<!-- <li><a href="/">Feedback</a></li> -->
+			<li>
+				<a href="https://github.com/Litora/site" target="_blank"
+					>{navigation.githubText}</a
+				>
+			</li>
+		</ul>
 	</div>
 </nav>
 
@@ -23,26 +31,26 @@
 		}
 	}
 
-  nav > div {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    padding: 30px 20px;
-  }
+	nav > div {
+		display: flex;
+		gap: 10px;
+		justify-content: space-between;
+		padding: 30px 20px;
+	}
 
-  nav > div > span.logo {
-    background-image: url(/litora-icon.svg);
-    aspect-ratio: 462/310;
-    background-size: cover;
-  }
+	nav > div > span.logo {
+		background-image: url(/litora-icon.svg);
+		aspect-ratio: 462/310;
+		background-size: cover;
+	}
 
-  nav > div > ul {
-    display: flex;
-    gap: 10px;
-    list-style: none;
+	nav > div > ul {
+		display: flex;
+		gap: 10px;
+		list-style: none;
 
-    li {
-      line-height: 1.2lh;
-    }
-  }
+		li {
+			line-height: 1.2lh;
+		}
+	}
 </style>

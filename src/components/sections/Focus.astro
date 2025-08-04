@@ -1,32 +1,28 @@
 ---
-import CloseIcon from '#assets/icons/close.svg'
+import CloseIcon from '#assets/icons/close.svg';
+
+const { focus } = Astro.locals.texts;
 ---
 
 <section class="focus">
-	<h1>Distraction-Free Focus</h1>
+	<h1>{focus.title}</h1>
 	<div class="features-container">
 		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />Ads</h1>
+			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noAds.title}</h1>
 			<p>
-				Experience a completely ad-free environment: no banners, no pop-ups, and
-				no sponsored interruptions. Litora keeps your workspace clean so your
-				mind stays on the task.
+				{focus.noAds.description}
 			</p>
 		</div>
 		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />Logins</h1>
+			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noLogins.title}</h1>
 			<p>
-				Jump straight into mixing—no account, no email, no password. Litora’s
-				zero-signup policy means you can start building your perfect soundscape
-				in seconds.
+				{focus.noLogins.description}
 			</p>
 		</div>
 		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />Interruptions</h1>
+			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noInterruptions.title}</h1>
 			<p>
-				Enjoy an uninterrupted session with no hidden paywalls or forced
-				updates. Litora runs smoothly in your browser, letting you focus on what
-				matters without unexpected breaks.
+				{focus.noInterruptions.description}
 			</p>
 		</div>
 	</div>

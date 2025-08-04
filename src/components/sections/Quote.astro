@@ -1,12 +1,15 @@
+---
+const { quote } = Astro.locals.texts;
+---
+
 <section class="quote" id="quote">
 	<blockquote>
 		<span
-			>Litora is completely free, open source, and built with care for students,
-			remote workers, and anyone who needs a calming background to stay in flow.</span
+			>{quote.quoteText}</span
 		>
 	</blockquote>
 	<div class="author">
-		<p>- Angel Raymondi</p><p>CEO & Founder of Litora</p>
+		<p>- {quote.quoteAuthor.name}</p><p>{quote.quoteAuthor.role}</p>
 	</div>
 </section>
 
@@ -96,7 +99,7 @@
 				width: var(--quote-size);
 				aspect-ratio: 1/1;
 				position: absolute;
-				opacity: .2;
+				opacity: 0.2;
 			}
 
 			&::before {

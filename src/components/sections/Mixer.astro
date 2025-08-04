@@ -8,38 +8,39 @@ import LeafIcon from "#assets/icons/nest-eco-leaf.svg";
 import BirdIcon from "#assets/icons/raven.svg";
 import TrainIcon from "#assets/icons/train.svg";
 import WavesIcon from "#assets/icons/waves.svg";
+
+const { mixer } = Astro.locals.texts;
 ---
 
 <section id="mixer">
 	<div class="box">
-		<h1>Craft Your Space</h1>
+		<h1>{mixer.title}</h1>
 		<p>
-			Select the sounds you like, then adjust the volume for each one. Find the
-			perfect combination to help you focus.
+			{mixer.description}
 		</p>
 		<div class="effect-container">
-			<Effect client:load effectTitle="Rain" playlistId="rain"
+			<Effect client:load effectTitle={mixer.sounds.rain} playlistId="rain"
 				><RainyIcon />
 			</Effect>
-			<Effect client:load effectTitle="Flight" playlistId="airplane"
+			<Effect client:load effectTitle={mixer.sounds.flight} playlistId="airplane"
 				><AirplaneIcon />
 			</Effect>
-			<Effect client:load effectTitle="Cafe" playlistId="coffee"
+			<Effect client:load effectTitle={mixer.sounds.cafe} playlistId="coffee"
 				><CafeIcon />
 			</Effect>
-			<Effect client:load effectTitle="Sea" playlistId="sea"
+			<Effect client:load effectTitle={mixer.sounds.sea} playlistId="sea"
 				><WavesIcon />
 			</Effect>
-			<Effect client:load effectTitle="Birds" playlistId="birds"
+			<Effect client:load effectTitle={mixer.sounds.birds} playlistId="birds"
 				><BirdIcon />
 			</Effect>
-			<Effect client:load effectTitle="Crickets" playlistId="crickets">
+			<Effect client:load effectTitle={mixer.sounds.crickets} playlistId="crickets">
 				<LeafIcon />
 			</Effect>
-			<Effect client:load effectTitle="Fireplace" playlistId="fire">
+			<Effect client:load effectTitle={mixer.sounds.fireplace} playlistId="fire">
 				<FireplaceIcon />
 			</Effect>
-			<Effect client:load effectTitle="Train" playlistId="train">
+			<Effect client:load effectTitle={mixer.sounds.train} playlistId="train">
 				<TrainIcon />
 			</Effect>
 		</div>

@@ -5,14 +5,18 @@ import MixerSection from "@components/sections/Mixer.astro";
 import QuoteSection from "@components/sections/Quote.astro";
 import FocusSection from "@components/sections/Focus.astro";
 import SpiritSection from "@components/sections/Spirit.astro";
+
+const {
+	texts: {
+		meta: { index },
+	},
+} = Astro.locals;
 ---
 
-<Layout
-	title="Litora - The Sound of Productivity"
-	description="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace.">
+<Layout title={index.title} description={index.description}>
 	<Fragment slot="head">
 		<!-- Primary Meta Tags -->
-		<meta name="title" content="Litora - The Sound of Productivity" />
+		<meta name="title" content={index.title} />
 
 		<!-- Viewport and Charset -->
 		<meta charset="UTF-8" />
@@ -27,11 +31,8 @@ import SpiritSection from "@components/sections/Spirit.astro";
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://litora.rest/" />
-		<meta property="og:title" content="Litora - The Sound of Productivity" />
-		<meta
-			property="og:description"
-			content="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace."
-		/>
+		<meta property="og:title" content={index.title} />
+		<meta property="og:description" content={index.description} />
 		<meta
 			property="og:image"
 			content="https://litora.rest/litora-og-image.png"
@@ -40,11 +41,8 @@ import SpiritSection from "@components/sections/Spirit.astro";
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://litora.rest/" />
-		<meta name="twitter:title" content="Litora - The Sound of Productivity" />
-		<meta
-			name="twitter:description"
-			content="Mix and match high-quality ambient sounds to boost your concentration and calm your mind. No ads, no sign-ups, just peace."
-		/>
+		<meta name="twitter:title" content={index.title} />
+		<meta name="twitter:description" content={index.description} />
 		<meta
 			name="twitter:image"
 			content="https://litora.rest/litora-og-image.png"
@@ -52,7 +50,7 @@ import SpiritSection from "@components/sections/Spirit.astro";
 
 		<!-- Theme Color -->
 		<meta name="theme-color" content="#101010" />
-		
+
 		<!-- Author -->
 		<meta name="author" content="Litora Project" />
 	</Fragment>

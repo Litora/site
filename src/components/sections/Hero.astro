@@ -1,15 +1,16 @@
 ---
 import Button from "@components/Button.astro";
+
+const { hero } = Astro.locals.texts;
 ---
 
 <section class="hero">
-	<h1>The Sound of Productivity</h1>
+	<h1>{hero.title}</h1>
 	<p>
-		Mix and match high-quality ambient sounds to boost your concentration and
-		calm your mind.
+		{hero.description}
 	</p>
 	<div class="button-container">
-		<a href="/#mixer"><Button>Get started</Button></a>
+		<a href="/#mixer"><Button>{hero.buttonText}</Button></a>
 	</div>
 </section>
 
