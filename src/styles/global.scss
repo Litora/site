@@ -2,13 +2,15 @@
 
 @font-face {
 	font-family: "Libre Franklin";
-	src: url(/fonts/libre_franklin/librefranklin-variablefont_wght.woff2) format("woff2");
+	src: url(/fonts/libre_franklin/librefranklin-variablefont_wght.woff2)
+		format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "Open Sans";
-	src: url(/fonts/open_sans/opensans-variablefont_wdth,wght.woff2) format("woff2");
+	src: url(/fonts/open_sans/opensans-variablefont_wdth,wght.woff2)
+		format("woff2");
 	font-display: swap;
 }
 
@@ -57,7 +59,7 @@ h6 {
 		min(1200px, 100%)
 		1fr;
 
-	& > * {
+	& > section, .section {
 		grid-column: 2;
 	}
 
@@ -67,19 +69,19 @@ h6 {
 	}
 }
 
-main.wrapper > section {
+main.wrapper > section, .section {
 	padding: 30px 20px;
 
 	h1 {
 		font-size: 2em;
 	}
+}
 
-	& > .box {
-		border: 1px solid rgb(30, 30, 30);
-		background-color: rgb(20, 20, 20);
-		border-radius: 10px;
-		padding: 30px;
-	}
+.box {
+	border: 1px solid rgb(30, 30, 30);
+	background-color: rgb(20, 20, 20);
+	border-radius: 10px;
+	padding: 30px;
 }
 
 a {

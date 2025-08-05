@@ -1,22 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "@components/sections/Hero.astro";
-import MixerSection from "@components/sections/Mixer.astro";
+import MixerSection from "@components/sections/Mixer";
 import QuoteSection from "@components/sections/Quote.astro";
 import FocusSection from "@components/sections/Focus.astro";
 import SpiritSection from "@components/sections/Spirit.astro";
 
 const {
-	texts: {
-		meta: { index },
-	},
-} = Astro.locals;
+	meta, mixer
+} = Astro.locals.texts;
+
 ---
 
-<Layout title={index.title} description={index.description}>
+<Layout title={meta.index.title} description={meta.index.description}>
 	<Fragment slot="head">
 		<!-- Primary Meta Tags -->
-		<meta name="title" content={index.title} />
+		<meta name="title" content={meta.index.title} />
 
 		<!-- Viewport and Charset -->
 		<meta charset="UTF-8" />
@@ -31,8 +30,8 @@ const {
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://litora.rest/" />
-		<meta property="og:title" content={index.title} />
-		<meta property="og:description" content={index.description} />
+		<meta property="og:title" content={meta.index.title} />
+		<meta property="og:description" content={meta.index.description} />
 		<meta
 			property="og:image"
 			content="https://litora.rest/litora-og-image.png"
@@ -41,8 +40,8 @@ const {
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://litora.rest/" />
-		<meta name="twitter:title" content={index.title} />
-		<meta name="twitter:description" content={index.description} />
+		<meta name="twitter:title" content={meta.index.title} />
+		<meta name="twitter:description" content={meta.index.description} />
 		<meta
 			name="twitter:image"
 			content="https://litora.rest/litora-og-image.png"
@@ -57,7 +56,7 @@ const {
 
 	<main class="wrapper">
 		<HeroSection />
-		<MixerSection />
+		<MixerSection client:load mixer={mixer} />
 		<QuoteSection />
 		<FocusSection />
 		<SpiritSection />

@@ -9,6 +9,7 @@
 		"paths": {
 			"@components/*": ["src/components/*"],
 			"@layouts/*": ["src/layouts/*"],
+			"@i18n/*": ["src/i18n/*"],
 			"#assets/*": ["src/assets/*"],
 			"#global.scss": ["src/styles/global.scss"],
 		}
