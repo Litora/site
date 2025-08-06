@@ -1,35 +1,85 @@
-import { useState } from 'react';
-import * as Slider from '@radix-ui/react-slider';
-import './VolumeSlider.scss';
+import { useRef, useState, useEffect, useCallback } from "react";
+import "./VolumeSlider.scss";
 
-interface VolumeSliderProps {
-  onVolumeChange: (normalized: number) => void;
+interface Props {
+	onVolumeChange: (volume: number) => void;
+	initialValue?: number;
 }
 
-export default function VolumeSlider({ onVolumeChange }: VolumeSliderProps) {
-  const [value, setValue] = useState<number>(0);
+export default function VolumeSlider({
+	onVolumeChange,
+	initialValue = 0,
+}: Props) {
+	const trackRef = useRef<HTMLDivElement>(null);
+	const thumbRef = useRef<HTMLDivElement>(null);
 
-  const handleChange = (val: number[]) => {
-    const normalized = val[0] / 100;
-    setValue(val[0]);
-    onVolumeChange(normalized);
-  };
+	const [isDragging, setIsDragging] = useState(false);
+	const [percentage, setPercentage] = useState(initialValue);
 
-  return (
-    <div className="volume-slider-container">
-      <Slider.Root
-        className="slider-root"
-        defaultValue={[0]}
-        max={100}
-        step={1}
-        onValueChange={handleChange}
-      >
-        <Slider.Track className="slider-track">
-          <Slider.Range className="slider-range" />
-        </Slider.Track>
-        <Slider.Thumb className="slider-thumb" />
-      </Slider.Root>
-      <p className="currentVolume">{value}%</p>
-    </div>
-  );
+	const updatePosition = useCallback(
+		(clientX: number) => {
+			const track = trackRef.current;
+			if (!track) return;
+
+			const rect = track.getBoundingClientRect();
+			let x = clientX - rect.left;
+			x = Math.max(0, Math.min(x, rect.width));
+
+			const pct = x / rect.width;
+			setPercentage(pct);
+			onVolumeChange(pct);
+		},
+		[onVolumeChange]
+	);
+
+	const handlePointerDown = (e: React.PointerEvent) => {
+		e.preventDefault();
+		setIsDragging(true);
+		updatePosition(e.clientX);
+	};
+
+	const handlePointerMove = useCallback(
+		(e: PointerEvent) => {
+			if (!isDragging) return;
+
+			requestAnimationFrame(() => {
+				updatePosition(e.clientX);
+			});
+		},
+		[isDragging, updatePosition]
+	);
+
+	const handlePointerUp = useCallback(() => {
+		setIsDragging(false);
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener("pointermove", handlePointerMove, {
+			passive: true,
+		});
+		window.addEventListener("pointerup", handlePointerUp);
+		return () => {
+			window.removeEventListener("pointermove", handlePointerMove);
+			window.removeEventListener("pointerup", handlePointerUp);
+		};
+	}, [handlePointerMove, handlePointerUp]);
+
+	return (
+		<div className="volume-slider">
+			<div className="slider-container" data-slider-zero={percentage === 0 ? "zero" : "nonzero"}>
+				<div
+					className="slider-track"
+					ref={trackRef}
+					onPointerDown={handlePointerDown}
+				/>
+				<div
+					className="slider-thumb"
+					ref={thumbRef}
+					style={{ left: `calc(${percentage} * (100% - 16px))` }}
+					onPointerDown={handlePointerDown}
+				/>
+			</div>
+			<p className="current-volume">{Math.round(percentage * 100)}%</p>
+		</div>
+	);
 }
