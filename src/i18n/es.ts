@@ -33,6 +33,12 @@ export const es: LocaleText = {
 			fireplace: "Fogata",
 			train: "Tren",
 		},
+		effectStatus: {
+			off: "Apagado",
+			loading: "Cargando",
+			playing: "Reproduciendo",
+			paused: "Pausado",
+		}
 	},
 	focus: {
 		title: "Siempre concentrado",

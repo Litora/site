@@ -1,3 +1,10 @@
+export type EffectStatus = {
+	off: string;
+	loading: string;
+	playing: string;
+	paused: string;
+};
+
 export interface Meta {
 	index: {
 		title: string;
@@ -23,6 +30,7 @@ export interface MixerSection {
 		fireplace: string;
 		train: string;
 	};
+	effectStatus: EffectStatus;
 }
 export interface QuoteSection {
 	quoteText: string;

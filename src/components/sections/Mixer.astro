@@ -1,0 +1,29 @@
+---
+import Box from "@components/Box";
+
+const { mixer } = Astro.locals.texts;
+---
+
+<section id="mixer">
+	<div class="box">
+		<Box mixer={mixer} client:load />
+	</div>
+</section>
+
+<style lang="scss">
+	@media (max-width: 670px) {
+		section#mixer {
+			padding: 30px 0;
+		}
+		section#mixer > .box {
+			padding: 50px 30px;
+			border: none;
+		}
+		section#mixer h1 {
+			letter-spacing: 0.06em;
+		}
+		section#mixer p {
+			line-height: 1.6lh;
+		}
+	}
+</style>
