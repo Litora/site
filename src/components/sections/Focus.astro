@@ -1,45 +1,21 @@
 ---
-import CloseIcon from '#assets/icons/close.svg';
+import CloseIcon from "#assets/icons/close.svg";
 
 const { focus } = Astro.locals.texts;
 ---
 
-<section class="focus">
-	<h1>{focus.title}</h1>
-	<div class="features-container">
-		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noAds.title}</h1>
-			<p>
-				{focus.noAds.description}
-			</p>
-		</div>
-		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noLogins.title}</h1>
-			<p>
-				{focus.noLogins.description}
-			</p>
-		</div>
-		<div class="feature">
-			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noInterruptions.title}</h1>
-			<p>
-				{focus.noInterruptions.description}
-			</p>
-		</div>
-	</div>
-</section>
+<style is:inline>
+	section:is(.focus) {
+		padding-block: 100px !important;
 
-<style lang="scss">
-	section.focus {
-		padding-block: 100px;
-
-		& > h1 {
-			font-size: 2.5em;
+		& > h1.focus-title {
+			font-size: 2.6em;
 			text-align: center;
 			margin-bottom: 30px;
 		}
 	}
 
-	.features-container {
+	section:is(.focus) > .features-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
 		gap: 15px;
@@ -64,6 +40,12 @@ const { focus } = Astro.locals.texts;
 		}
 	}
 
+	@media(width <= 1000px) {
+		section:is(.focus) > h1.focus-title {
+			font-size: 2.1em;
+		}
+	}
+
 	@media (width <= 350px) {
 		section:is(.focus) > .features-container > .feature {
 			h1 {
@@ -72,3 +54,34 @@ const { focus } = Astro.locals.texts;
 		}
 	}
 </style>
+
+<section class="focus">
+	<h1 class="focus-title">{focus.title}</h1>
+	<div class="features-container">
+		<div class="feature">
+			<h1><CloseIcon style="height: 1lh; width: 1lh;" />{focus.noAds.title}</h1>
+			<p>
+				{focus.noAds.description}
+			</p>
+		</div>
+		<div class="feature">
+			<h1>
+				<CloseIcon style="height: 1lh; width: 1lh;" />{focus.noLogins.title}
+			</h1>
+			<p>
+				{focus.noLogins.description}
+			</p>
+		</div>
+		<div class="feature">
+			<h1>
+				<CloseIcon style="height: 1lh; width: 1lh;" />{
+					focus.noInterruptions.title
+				}
+			</h1>
+			<p>
+				{focus.noInterruptions.description}
+			</p>
+		</div>
+	</div>
+</section>
+

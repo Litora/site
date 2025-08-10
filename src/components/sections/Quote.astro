@@ -2,23 +2,12 @@
 const { quote } = Astro.locals.texts;
 ---
 
-<section class="quote" id="quote">
-	<blockquote>
-		<span
-			>{quote.quoteText}</span
-		>
-	</blockquote>
-	<div class="author">
-		<p>- {quote.quoteAuthor.name}</p><p>{quote.quoteAuthor.role}</p>
-	</div>
-</section>
-
-<style lang="scss">
+<style is:inline>
 	section.quote {
-		padding-block: 100px;
+		padding-block: 100px !important;
 	}
 
-	blockquote {
+	section.quote > blockquote {
 		--size: 2em;
 		--quote-size: calc(var(--size) * 1.4);
 
@@ -55,39 +44,37 @@ const { quote } = Astro.locals.texts;
 		}
 	}
 
-	.author {
+	section.quote .author {
 		text-align: end;
 
-		p:nth-child(1) {
-			// Author's name
+		p.author-name {
 			font-size: 1.7em;
 			line-height: normal;
 			font-weight: bold;
 		}
-		p:nth-child(2) {
-			// Author's role
+		p.author-role {
 			font-size: 1.2em;
 			line-height: normal;
 		}
 	}
 
 	@media (width <= 870px) {
-		blockquote {
+		section.quote > blockquote {
 			width: 100%;
 		}
 	}
 	@media (width <= 750px) {
-		blockquote {
+		section.quote > blockquote {
 			--size: 1.6em;
 		}
 	}
 	@media (width <= 650px) {
-		blockquote {
+		section.quote > blockquote {
 			--size: 1.3em;
 		}
 	}
-	@media (width <= 400px) {
-		blockquote {
+	@media (width <= 550px) {
+		section.quote > blockquote {
 			display: block;
 			grid-template-columns: unset;
 			position: relative;
@@ -117,8 +104,18 @@ const { quote } = Astro.locals.texts;
 			}
 		}
 
-		.author {
+		section.quote > .author {
 			text-align: center;
 		}
 	}
 </style>
+
+<section class="quote" id="quote">
+	<blockquote>
+		<span>{quote.quoteText}</span>
+	</blockquote>
+	<div class="author">
+		<p class="author-name">- {quote.quoteAuthor.name}</p>
+		<p class="author-role">{quote.quoteAuthor.role}</p>
+	</div>
+</section>

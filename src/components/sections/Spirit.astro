@@ -2,18 +2,9 @@
 const { spirit } = Astro.locals.texts;
 ---
 
-<section class="spirit">
-	<div class="quote-container">
-		<blockquote>
-			{spirit.quoteText}
-		</blockquote>
-		<cite>— {spirit.quoteAuthor}</cite>
-	</div>
-</section>
-
-<style lang="scss">
-	section.spirit {
-		padding-block: 100px;
+<style is:inline>
+	section:is(.spirit) {
+		padding-block: 100px !important;
 
 		.quote-container {
 			padding: 20px;
@@ -34,8 +25,17 @@ const { spirit } = Astro.locals.texts;
 	}
 
 	@media (width <= 600px) {
-		div:is(.quote-container) > blockquote {
+		section:is(.spirit) > div:is(.quote-container) > blockquote {
 			font-size: 1.5em;
 		}
 	}
 </style>
+
+<section class="spirit">
+	<div class="quote-container">
+		<blockquote>
+			{spirit.quoteText}
+		</blockquote>
+		<cite>— {spirit.quoteAuthor}</cite>
+	</div>
+</section>
