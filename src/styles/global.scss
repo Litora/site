@@ -37,7 +37,7 @@ body {
 	background-attachment: fixed;
 	background-size: 91px;
 	color: rgb(220, 220, 220);
-	font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Open Sans", "Segoe UI", sans-serif, system-ui;
 	min-height: 100svh;
 }
 
@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Libre Franklin", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Libre Franklin", "Segoe UI", sans-serif, system-ui;
 	color: white;
 	font-weight: 900;
 }
@@ -91,21 +91,4 @@ a {
 
 p {
 	line-height: 1.2lh;
-}
-
-.material-symbols-outlined {
-	font-family: "Material Symbols Outlined";
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;
-	line-height: 1;
-	letter-spacing: normal;
-	text-transform: none;
-	display: inline-block;
-	white-space: nowrap;
-	direction: ltr;
-	-webkit-font-feature-settings: "liga";
-	font-feature-settings: "liga";
-	-webkit-font-smoothing: antialiased;
-	user-select: none;
 }

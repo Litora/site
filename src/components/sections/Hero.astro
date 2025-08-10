@@ -14,7 +14,7 @@ const { hero } = Astro.locals.texts;
 	</div>
 </section>
 
-<style lang="scss">
+<style lang="css">
 	section.hero {
 		padding-block: 100px;
 		padding-inline: 40px;
@@ -23,7 +23,7 @@ const { hero } = Astro.locals.texts;
 		text-align: center;
 		gap: 10px;
 
-		h1 {
+		& > h1 {
 			font-size: 3.5em;
 		}
 	}
@@ -34,7 +34,7 @@ const { hero } = Astro.locals.texts;
 			place-items: unset;
 			text-align: initial;
 
-			h1 {
+			& > h1 {
 				font-size: 2.7em;
 			}
 		}
@@ -45,17 +45,17 @@ const { hero } = Astro.locals.texts;
 			gap: unset;
 			padding-inline: 20px;
 
-			h1 {
+			& > h1 {
 				font-size: 2.3em;
 				margin-bottom: 7px;
 			}
 
-			p {
+			& > p {
 				margin-bottom: 5px;
 				line-height: 1.7;
 			}
 
-			a > :global(button) {
+			& > a > :global(button) {
 				padding: 15px 25px;
 			}
 		}
