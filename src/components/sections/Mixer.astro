@@ -1,16 +1,105 @@
 ---
-import Box from "@components/Box";
+import Effect from "@components/Effect";
+import AirplaneIcon from "@components/icons/Airplane";
+import BirdIcon from "@components/icons/Bird";
+import CafeIcon from "@components/icons/Cafe";
+import FireplaceIcon from "@components/icons/Fireplace";
+import LeafIcon from "@components/icons/Leaf";
+import RainyIcon from "@components/icons/Rainy";
+import TrainIcon from "@components/icons/Train";
+import WavesIcon from "@components/icons/Waves";
 
 const { mixer } = Astro.locals.texts;
 ---
 
 <section id="mixer">
 	<div class="box">
-		<Box mixer={mixer} client:visible />
+		<div class="container">
+			<h1>{mixer.title}</h1>
+			<p>{mixer.description}</p>
+			<div class="effect-container">
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.rain}
+					effectStatus={mixer.effectStatus}
+					playlistId="rain">
+					<RainyIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.flight}
+					effectStatus={mixer.effectStatus}
+					playlistId="airplane">
+					<AirplaneIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.cafe}
+					effectStatus={mixer.effectStatus}
+					playlistId="coffee">
+					<CafeIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.sea}
+					effectStatus={mixer.effectStatus}
+					playlistId="sea">
+					<WavesIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.birds}
+					effectStatus={mixer.effectStatus}
+					playlistId="birds">
+					<BirdIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.crickets}
+					effectStatus={mixer.effectStatus}
+					playlistId="crickets">
+					<LeafIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.fireplace}
+					effectStatus={mixer.effectStatus}
+					playlistId="fire">
+					<FireplaceIcon />
+				</Effect>
+				<Effect
+					client:visible
+					effectTitle={mixer.sounds.train}
+					effectStatus={mixer.effectStatus}
+					playlistId="train">
+					<TrainIcon />
+				</Effect>
+			</div>
+		</div>
 	</div>
 </section>
 
 <style lang="scss">
+	.container > .effect-container :global(.effect > .icon-container) {
+		text-align: center;
+	}
+	.container > .effect-container :global(.effect > .icon-container svg) {
+		width: 4.5lh;
+		height: 4.5lh;
+	}
+	.container :global(h1) {
+		margin-bottom: 7px;
+	}
+	.container :global(p) {
+		margin-bottom: 7px;
+	}
+	.container > .effect-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
+		gap: 30px;
+		margin-top: 20px;
+	}
+
 	@media (max-width: 670px) {
 		section#mixer {
 			padding: 30px 0;
