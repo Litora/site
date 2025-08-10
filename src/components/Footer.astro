@@ -2,6 +2,21 @@
 import LitoraLogo from "#assets/litora-logo.svg";
 ---
 
+<style is:inline>
+	body > footer.wrapper {
+		padding: 50px 20px;
+		background-color: rgb(13, 13, 13);
+	}
+
+	body > footer.wrapper > div > ul {
+		list-style: none;
+
+		li {
+			line-height: 1.4lh;
+		}
+	}
+</style>
+
 <footer class="wrapper">
 	<div>
 		<LitoraLogo
@@ -13,24 +28,3 @@ import LitoraLogo from "#assets/litora-logo.svg";
 		</ul>
 	</div>
 </footer>
-
-<style lang="scss">
-	footer {
-		background-color: rgb(13, 13, 13);
-	}
-
-	.litora-logo {
-	}
-
-	ul {
-		list-style: none;
-
-		li {
-			line-height: 1.4lh;
-		}
-	}
-
-	footer > div {
-		padding: 50px 20px;
-	}
-</style>

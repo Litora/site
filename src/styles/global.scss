@@ -51,7 +51,7 @@ h6 {
 		min(1200px, 100%)
 		1fr;
 
-	& > section {
+	& > * {
 		grid-column: 2;
 	}
 
