@@ -12,6 +12,31 @@ import WavesIcon from "@components/icons/Waves";
 const { mixer } = Astro.locals.texts;
 ---
 
+<style is:inline>
+	.container > .effect-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
+		gap: 30px;
+		margin-top: 20px;
+	}
+
+	@media (max-width: 670px) {
+		section#mixer {
+			padding: 30px 0;
+		}
+		section#mixer > .box {
+			padding: 50px 30px;
+			border: none;
+		}
+		section#mixer h1 {
+			letter-spacing: 0.06em;
+		}
+		section#mixer p {
+			line-height: 1.6lh;
+		}
+	}
+</style>
+
 <section id="mixer">
 	<div class="box">
 		<div class="container">
@@ -78,41 +103,3 @@ const { mixer } = Astro.locals.texts;
 		</div>
 	</div>
 </section>
-
-<style lang="css">
-	.container > .effect-container :global(.effect > .icon-container) {
-		text-align: center;
-	}
-	.container > .effect-container :global(.effect > .icon-container svg) {
-		width: 4.5lh;
-		height: 4.5lh;
-	}
-	.container :global(h1) {
-		margin-bottom: 7px;
-	}
-	.container :global(p) {
-		margin-bottom: 7px;
-	}
-	.container > .effect-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
-		gap: 30px;
-		margin-top: 20px;
-	}
-
-	@media (max-width: 670px) {
-		section#mixer {
-			padding: 30px 0;
-		}
-		section#mixer > .box {
-			padding: 50px 30px;
-			border: none;
-		}
-		section#mixer h1 {
-			letter-spacing: 0.06em;
-		}
-		section#mixer p {
-			line-height: 1.6lh;
-		}
-	}
-</style>

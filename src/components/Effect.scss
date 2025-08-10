@@ -6,6 +6,7 @@
 	font-size: 1.3em;
 	font-weight: 700;
 	text-align: center;
+	margin-bottom: 7px;
 }
 
 .effect > .status-container {
@@ -14,6 +15,14 @@
 	color: rgba(255, 255, 255, 0.7);
 	text-transform: uppercase;
 	text-align: center;
-	letter-spacing: .1rem;
+	letter-spacing: 0.1rem;
 	user-select: none;
+}
+
+.effect > .icon-container {
+	text-align: center;
+}
+.effect > .icon-container svg {
+	width: 4.5lh;
+	height: 4.5lh;
 }
