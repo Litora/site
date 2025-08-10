@@ -1,5 +1,8 @@
 .effect {
 	padding: 20px 0;
+	display: grid;
+	place-self: center;
+	width: 100%;
 }
 
 .effect > h1.effect-title {

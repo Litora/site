@@ -10,14 +10,30 @@ import TrainIcon from "@components/icons/Train";
 import WavesIcon from "@components/icons/Waves";
 
 const { mixer } = Astro.locals.texts;
+
+const effectsConfig = [
+	{ id: "rain", title: mixer.sounds.rain, icon: RainyIcon },
+	{ id: "airplane", title: mixer.sounds.flight, icon: AirplaneIcon },
+	{ id: "coffee", title: mixer.sounds.cafe, icon: CafeIcon },
+	{ id: "sea", title: mixer.sounds.sea, icon: WavesIcon },
+	{ id: "birds", title: mixer.sounds.birds, icon: BirdIcon },
+	{ id: "crickets", title: mixer.sounds.crickets, icon: LeafIcon },
+	{ id: "fire", title: mixer.sounds.fireplace, icon: FireplaceIcon },
+	{ id: "train", title: mixer.sounds.train, icon: TrainIcon },
+];
 ---
 
 <style is:inline>
 	section#mixer .container > .effect-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
+		grid-auto-rows: 270px;
 		gap: 30px;
 		margin-top: 20px;
+
+		& > .effect-item {
+			display: grid;
+		}
 	}
 
 	@media (max-width: 670px) {
@@ -43,62 +59,19 @@ const { mixer } = Astro.locals.texts;
 			<h1>{mixer.title}</h1>
 			<p>{mixer.description}</p>
 			<div class="effect-container">
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.rain}
-					effectStatus={mixer.effectStatus}
-					playlistId="rain">
-					<RainyIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.flight}
-					effectStatus={mixer.effectStatus}
-					playlistId="airplane">
-					<AirplaneIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.cafe}
-					effectStatus={mixer.effectStatus}
-					playlistId="coffee">
-					<CafeIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.sea}
-					effectStatus={mixer.effectStatus}
-					playlistId="sea">
-					<WavesIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.birds}
-					effectStatus={mixer.effectStatus}
-					playlistId="birds">
-					<BirdIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.crickets}
-					effectStatus={mixer.effectStatus}
-					playlistId="crickets">
-					<LeafIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.fireplace}
-					effectStatus={mixer.effectStatus}
-					playlistId="fire">
-					<FireplaceIcon />
-				</Effect>
-				<Effect
-					client:visible
-					effectTitle={mixer.sounds.train}
-					effectStatus={mixer.effectStatus}
-					playlistId="train">
-					<TrainIcon />
-				</Effect>
+				{
+					effectsConfig.map(({ id, title, icon: Icon }) => (
+						<div class="effect-item">
+							<Effect
+								client:visible
+								effectTitle={title}
+								effectStatus={mixer.effectStatus}
+								playlistId={id}>
+								<Icon />
+							</Effect>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>
