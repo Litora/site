@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import Hls from "hls.js";
-import $ from "jquery";
 import VolumeSlider from "./VolumeSlider";
 import "./Effect.scss";
 import type { EffectStatus } from "@i18n/types";
@@ -12,6 +10,8 @@ interface EffectProps {
 	effectStatus: EffectStatus;
 }
 
+let $: any | null = null; // JQuery
+
 export default function Effect({
 	effectTitle,
 	playlistId,
@@ -19,7 +19,7 @@ export default function Effect({
 	effectStatus,
 }: EffectProps) {
 	const audioRef = useRef<HTMLAudioElement | null>(null);
-	const hlsRef = useRef<Hls | null>(null);
+	const hlsRef = useRef<any | null>(null); // hls.js
 
 	const [volume, setVolume] = useState(0);
 	const [hasStarted, setHasStarted] = useState(false);
@@ -58,7 +58,10 @@ export default function Effect({
 		return Math.abs(a - b) > 0.005;
 	}
 
-	function fadeVolume(audio: HTMLAudioElement, to: number, duration: number) {
+	async function fadeVolume(audio: HTMLAudioElement, to: number, duration: number) {
+		if (!$) {
+			$ = (await import("jquery")).default;
+		}
 		currentFadeRef.current?.stop(true);
 		const $audio = $(audio);
 		const anim = $audio.animate(
@@ -104,6 +107,7 @@ export default function Effect({
 	useEffect(() => {
 		const audio = audioRef.current;
 		if (!audio) return;
+
 		if (
 			isFadingRef.current &&
 			fadeInDoneRef.current &&
@@ -113,6 +117,7 @@ export default function Effect({
 			fadeVolume(audio, volume, 200);
 			return;
 		}
+
 		if (hasStarted && !isFadingRef.current) {
 			audio.volume = volume;
 			if (volume > 0) {
@@ -122,12 +127,16 @@ export default function Effect({
 				hlsRef.current?.stopLoad();
 			}
 		}
+
 		if (!hasStarted && volume > 0 && !hlsRef.current) {
-			const hls = new Hls({ autoStartLoad: false });
-			hlsRef.current = hls;
-			hls.loadSource(playlistUrl);
-			hls.attachMedia(audio);
-			hls.startLoad(0);
+			(async () => {
+				const { default: Hls } = await import("hls.js");
+				const hls = new Hls({ autoStartLoad: false });
+				hlsRef.current = hls;
+				hls.loadSource(playlistUrl);
+				hls.attachMedia(audio);
+				hls.startLoad(0);
+			})();
 		}
 	}, [volume, hasStarted, playlistUrl]);
 

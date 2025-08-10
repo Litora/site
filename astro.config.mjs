@@ -24,6 +24,16 @@ export default defineConfig({
 				  }
 				: undefined,
 		},
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						hls: ['hls.js'],
+						jquery: ['jquery']
+					}
+				}
+			}
+		}
 	},
 
 	integrations: [react()],
