@@ -10,7 +10,7 @@ const { hero } = Astro.locals.texts;
 		{hero.description}
 	</p>
 	<div class="button-container">
-		<a href="/#mixer"><Button>{hero.buttonText}</Button></a>
+		<Button href="/#mixer" label={hero.buttonText}>{hero.buttonText}</Button>
 	</div>
 </section>
 
