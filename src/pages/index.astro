@@ -9,21 +9,6 @@ import SpiritSection from "@components/sections/Spirit.astro";
 const { meta } = Astro.locals.texts;
 ---
 
-<style is:inline>
-	body {
-		display: grid;
-		grid-template-rows: auto auto 1fr;
-		background-image: url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='300' height='300'%3E%3Cpath opacity='.06' fill='none' stroke='%23fff' stroke-miterlimit='100' stroke-width='5' d='m2 0v200zm1.7 197.7h196.3z'/%3E%3C/svg%3E");
-		background-color: rgb(16, 16, 16);
-		background-position-x: 150px;
-		background-position-y: 119px;
-		background-attachment: fixed;
-		background-size: 91px;
-		color: rgb(220, 220, 220);
-		min-height: 100svh;
-	}
-</style>
-
 <Layout title={meta.index.title} description={meta.index.description}>
 	<Fragment slot="head">
 		<!-- Primary Meta Tags -->
@@ -64,6 +49,21 @@ const { meta } = Astro.locals.texts;
 
 		<!-- Author -->
 		<meta name="author" content="Litora Project" />
+
+		<style>
+			body {
+				display: grid;
+				grid-template-rows: auto auto 1fr;
+				background-image: url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='300' height='300'%3E%3Cpath opacity='.06' fill='none' stroke='%23fff' stroke-miterlimit='100' stroke-width='5' d='m2 0v200zm1.7 197.7h196.3z'/%3E%3C/svg%3E");
+				background-color: rgb(16, 16, 16);
+				background-position-x: 150px;
+				background-position-y: 119px;
+				background-attachment: fixed;
+				background-size: 91px;
+				color: rgb(220, 220, 220);
+				min-height: 100svh;
+			}
+		</style>
 	</Fragment>
 
 	<main class="wrapper">
