@@ -4,7 +4,7 @@ import LitoraIcon from "#assets/litora-icon.svg";
 const { navigation } = Astro.locals.texts;
 ---
 
-<nav>
+<nav class="litora-navigation">
 	<div>
 		<LitoraIcon style={"height: 1lh; width: auto; aspect-ratio: 462/310"} />
 		<ul>
@@ -19,8 +19,8 @@ const { navigation } = Astro.locals.texts;
 	</div>
 </nav>
 
-<style lang="scss">
-	nav {
+<style is:inline>
+	nav.litora-navigation {
 		display: grid;
 		grid-template-columns:
 			1fr
@@ -32,7 +32,7 @@ const { navigation } = Astro.locals.texts;
 		}
 	}
 
-	nav > div {
+	nav.litora-navigation > div {
 		display: flex;
 		gap: 10px;
 		justify-content: space-between;
@@ -40,7 +40,7 @@ const { navigation } = Astro.locals.texts;
 		align-items: center;
 	}
 
-	nav > div > ul {
+	nav.litora-navigation > div > ul {
 		display: flex;
 		gap: 10px;
 		list-style: none;

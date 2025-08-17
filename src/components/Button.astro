@@ -9,19 +9,19 @@ const { href, label } = Astro.props;
 
 {
 	href && label ? (
-		<a href={href} aria-label={label} draggable="false">
+		<a class="litora-button" href={href} aria-label={label} draggable="false">
 			<slot>Button</slot>
 		</a>
 	) : (
-		<button>
+		<button class="litora-button">
 			<slot>Button</slot>
 		</button>
 	)
 }
 
-<style lang="scss">
-	button,
-	a {
+<style is:inline>
+	button:is(.litora-button),
+	a:is(.litora-button) {
 		user-select: none;
 		background-color: #0064ff;
 		border: none;
