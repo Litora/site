@@ -1,0 +1,42 @@
+name: Screenshot Refresh
+
+on:
+  workflow_run:
+    workflows: ["Cloudflare Workers and Pages"]
+    types:
+      - completed
+
+jobs:
+  run-screenshot:
+    environment: screenshot
+    if: ${{ github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout screenshot-refresh repo
+        uses: actions/checkout@v4
+        with:
+          repository: Litora/screenshot-refresh
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run screenshot script
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          SCREENSHOTONE_ACCESS_KEY: ${{ secrets.SCREENSHOTONE_ACCESS_KEY }}
+          SCREENSHOTONE_SECRET_KEY: ${{ secrets.SCREENSHOTONE_SECRET_KEY }}
+          WORKER_UPLOAD_URL: ${{ secrets.WORKER_UPLOAD_URL }}
+          WORKER_UPLOAD_SECRET: ${{ secrets.WORKER_UPLOAD_SECRET }}
+          POLL_RETRIES: 30
+          POLL_INTERVAL: 10
+          EXPECT_TEXT: "Live"
+        run: |
+          # Prevent accidental secret printing
+          node -e "process.env.NODE_NO_WARNINGS='1'" # opcional
+          node dist/index.js
