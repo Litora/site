@@ -1,62 +1,51 @@
 ---
+import BaseSection from "@components/BaseSection.astro";
 import Button from "@components/Button.astro";
 
 const { hero } = Astro.locals.texts;
 ---
 
-<section class="hero">
-	<h1>{hero.title}</h1>
-	<p>
-		{hero.description}
-	</p>
-	<div class="button-container">
-		<Button href="/#mixer" label={hero.buttonText}>{hero.buttonText}</Button>
+<BaseSection color="rgb(15, 15, 15)">
+	<div class="base-section__container">
+		<div class="container">
+			<h1>{hero.title}</h1>
+			<p>
+				{hero.description}
+			</p>
+			<div class="button-container">
+				<Button href="/#mixer" label={hero.buttonText}>{hero.buttonText}</Button
+				>
+			</div>
+		</div>
+		<div class="image">
+			<img src="https://placehold.co/300x200/png" alt="Placeholder Image" />
+		</div>
 	</div>
-</section>
+</BaseSection>
 
-<style lang="css">
-	section.hero {
-		padding-block: 100px;
-		padding-inline: 40px;
+<style lang="scss">
+	@use "#variables.scss" as *;
+
+	.base-section__container {
 		display: grid;
-		place-items: center;
-		text-align: center;
-		gap: 10px;
+		grid-template-columns: 1fr 1fr;
+		min-height: 600px;
 
-		& > h1 {
-			font-size: 3.5em;
+		.container,
+		.image {
+			display: grid;
+			place-content: center;
+			padding: 20px;
 		}
-	}
 
-	@media (width <= 1000px) {
-		section:is(.hero) {
-			gap: 7px;
-			place-items: unset;
-			text-align: initial;
-
-			& > h1 {
-				font-size: 2.7em;
-			}
-		}
-	}
-	@media (width <= 450px) {
-		section:is(.hero) {
-			display: block;
-			gap: unset;
-			padding-inline: 20px;
-
-			& > h1 {
-				font-size: 2.3em;
-				margin-bottom: 7px;
+		.container {
+			h1 {
+				margin-bottom: 15px;
+				font-size: 3.8rem;
 			}
 
-			& > p {
-				margin-bottom: 5px;
-				line-height: 1.7;
-			}
-
-			& > a > :global(button) {
-				padding: 15px 25px;
+			p {
+				margin-bottom: 15px;
 			}
 		}
 	}

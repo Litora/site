@@ -12,6 +12,7 @@
 			"@i18n/*": ["src/i18n/*"],
 			"#assets/*": ["src/assets/*"],
 			"#global.scss": ["src/styles/global.scss"],
+			"#variables.scss": ["src/styles/variables.scss"],
 		}
 	}
 }

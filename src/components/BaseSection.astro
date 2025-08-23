@@ -1,0 +1,32 @@
+---
+interface Props {
+	color: string;
+  children: any[];
+}
+
+const { color } = Astro.props;
+---
+
+<section style={`--color: ${color}`}>
+	<slot />
+</section>
+
+<style lang="scss">
+	section {
+		display: grid;
+		grid-template-columns:
+			1fr
+			min(1200px, 100%)
+			1fr;
+    background-color: var(--color);
+
+		& > :global(*) {
+			grid-column: 2;
+		}
+
+		& > :global(.full-bleed) {
+			width: 100%;
+			grid-column: 1 / 4;
+		}
+	}
+</style>

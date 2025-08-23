@@ -1,4 +1,5 @@
 ---
+import BaseSection from "@components/BaseSection.astro";
 import Effect from "@components/Effect";
 import AirplaneIcon from "@components/icons/Airplane";
 import BirdIcon from "@components/icons/Bird";
@@ -23,8 +24,15 @@ const effectsConfig = [
 ];
 ---
 
-<style is:inline>
-	section#mixer .container > .effect-container {
+<style lang="scss">
+	@use "#variables.scss" as *;
+
+	.base-section__container {
+		padding-block: 50px;
+		padding-inline: 20px;
+	}
+
+	.effect-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
 		grid-auto-rows: 270px;
@@ -37,42 +45,37 @@ const effectsConfig = [
 	}
 
 	@media (max-width: 670px) {
-		section#mixer {
+		.base-section__container {
 			padding: 30px 0;
 		}
-		section#mixer > .box {
-			padding: 50px 30px;
-			border: none;
-		}
-		section#mixer h1 {
+		
+		.base-section__container h1 {
 			letter-spacing: 0.06em;
 		}
-		section#mixer p {
+		.base-section__container p {
 			line-height: 1.6lh;
 		}
 	}
 </style>
 
-<section id="mixer">
-	<div class="box">
-		<div class="container">
-			<h1>{mixer.title}</h1>
-			<p>{mixer.description}</p>
-			<div class="effect-container">
-				{
-					effectsConfig.map(({ id, title, icon: Icon }) => (
-						<div class="effect-item">
-							<Effect
-								client:visible
-								effectTitle={title}
-								effectStatus={mixer.effectStatus}
-								playlistId={id}>
-								<Icon />
-							</Effect>
-						</div>
-					))
-				}
-			</div>
+<BaseSection color="rgb(20, 20, 20)">
+	<div class="base-section__container">
+		<h1 id="mixer">{mixer.title}</h1>
+		<p>{mixer.description}</p>
+		<div class="effect-container">
+			{
+				effectsConfig.map(({ id, title, icon: Icon }) => (
+					<div class="effect-item">
+						<Effect
+							client:visible
+							effectTitle={title}
+							effectStatus={mixer.effectStatus}
+							playlistId={id}>
+							<Icon />
+						</Effect>
+					</div>
+				))
+			}
 		</div>
 	</div>
-</section>
+</BaseSection>

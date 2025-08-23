@@ -1,3 +1,5 @@
+@use './../styles/variables.scss' as *;
+
 .slider-container {
 	position: relative;
 	width: 100%;
@@ -20,17 +22,17 @@
 	width: 16px;
 	height: 16px;
 	border-radius: 50%;
-	background-color: dodgerblue;
+	background-color: $color-primary;
 	position: absolute;
 	top: 50%;
 	transform: translate(0%, -50%);
-	border: 2px solid dodgerblue;
+	border: 2px solid $color-primary;
 	transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
 		background-color 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 	cursor: pointer;
 
 	&:hover {
-		box-shadow: 0px 0px 15px 5px rgba(0, 119, 255, 0.4);
+		box-shadow: $shadow-primary-30;
 	}
 }
 
@@ -45,5 +47,5 @@ p.current-volume {
 }
 
 .slider-container[data-slider-zero="nonzero"] > .slider-thumb {
-	box-shadow: 0px 0px 15px 5px rgba(0, 119, 255, 0.4);
+	box-shadow: $shadow-primary-30;
 }

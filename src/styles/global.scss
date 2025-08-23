@@ -1,14 +1,8 @@
-@font-face {
-	font-family: "Libre Franklin";
-	src: url(/fonts/libre_franklin/librefranklin-variablefont_wght.woff2)
-		format("woff2");
-	font-display: swap;
-}
+@use "variables" as *;
 
 @font-face {
-	font-family: "Open Sans";
-	src: url(/fonts/open_sans/opensans-variablefont_wdth,wght.woff2)
-		format("woff2");
+	font-family: "Inter";
+	src: url(/fonts/inter/Inter-Variable.ttf) format("truetype");
 	font-display: swap;
 }
 
@@ -28,7 +22,18 @@ html {
 }
 
 body {
-	font-family: "Open Sans", "Segoe UI", sans-serif, system-ui;
+	font-family: "Inter", sans-serif, system-ui;
+	font-size: 16px;
+
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+	background-color: $color-background;
+	background-position-x: 150px;
+	background-position-y: 119px;
+	background-attachment: fixed;
+	background-size: 91px;
+	color: $color-text;
+	min-height: 100svh;
 }
 
 h1,
@@ -37,42 +42,44 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Libre Franklin", "Segoe UI", sans-serif, system-ui;
-	color: white;
 	font-weight: 900;
 }
 
-.wrapper {
-	display: grid;
-	grid-template-columns:
-		1fr
-		min(1200px, 100%)
-		1fr;
-
-	& > * {
-		grid-column: 2;
-	}
-
-	& > .full-bleed {
-		width: 100%;
-		grid-column: 1 / 4;
-	}
+h1 {
+	font-size: $font-size-h1;
+}
+h2 {
+	font-size: $font-size-h2;
+}
+h3 {
+	font-size: $font-size-h3;
+}
+h4 {
+	font-size: $font-size-h4;
+}
+h5 {
+	font-size: $font-size-h5;
+}
+h6 {
+	font-size: $font-size-h6;
 }
 
-main.wrapper > section {
-	padding: 30px 20px;
+// .wrapper {
+// 	display: grid;
+// 	grid-template-columns:
+// 		1fr
+// 		min(1200px, 100%)
+// 		1fr;
 
-	h1 {
-		font-size: 2em;
-	}
-}
+// 	& > * {
+// 		grid-column: 2;
+// 	}
 
-.box {
-	border: 1px solid rgb(30, 30, 30);
-	background-color: rgb(20, 20, 20);
-	border-radius: 10px;
-	padding: 30px;
-}
+// 	& > .full-bleed {
+// 		width: 100%;
+// 		grid-column: 1 / 4;
+// 	}
+// }
 
 a {
 	color: inherit;

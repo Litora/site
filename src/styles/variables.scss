@@ -1,0 +1,27 @@
+// 🎨 Colors
+$color-background: rgb(15, 15, 15);
+$color-surface: rgb(20, 20, 20);
+$color-primary: rgb(30, 190, 100);
+$color-on-primary: rgb(20, 20, 20);
+$shadow-primary-30: 0px 0px 20px 2px rgba($color-primary, 0.3);
+$color-secondary: #3f3f3f;
+$color-text: #ffffff;
+$color-text-muted: #b3b3b3;
+$color-border: #2a2a2a;
+
+// 🔠 Typography
+$font-family-base: "Inter", sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.2;
+$font-size-h1: 2.986rem;
+$font-size-h2: 2.488rem;
+$font-size-h3: 2.074rem;
+$font-size-h4: 1.728rem;
+$font-size-h5: 1.44rem;
+$font-size-h6: 1.2rem;
+$font-size-small: 0.833rem;
+
+// 🕶 Z-index levels
+$z-overlay: 1000;
+$z-modal: 2000;
+$z-toast: 3000;
