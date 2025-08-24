@@ -24,14 +24,9 @@ html {
 body {
 	font-family: "Inter", sans-serif, system-ui;
 	font-size: 16px;
-
 	display: grid;
-	grid-template-rows: auto auto 1fr;
+	grid-template-rows: auto 1fr auto;
 	background-color: $color-background;
-	background-position-x: 150px;
-	background-position-y: 119px;
-	background-attachment: fixed;
-	background-size: 91px;
 	color: $color-text;
 	min-height: 100svh;
 }

@@ -34,7 +34,7 @@
 	z-index: 1;
 	top: 50%;
 	transform: translate(0%, -50%);
-	border: 2px solid $color-primary;
+	border: 4px solid $color-primary;
 	transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
 		background-color 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 	cursor: pointer;

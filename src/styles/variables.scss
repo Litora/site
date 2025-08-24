@@ -26,3 +26,6 @@ $font-size-small: 0.833rem;
 $z-overlay: 1000;
 $z-modal: 2000;
 $z-toast: 3000;
+
+// 🧩 Wrapper grid
+$grid-template-columns: 1fr min(1200px, 100%) 1fr;

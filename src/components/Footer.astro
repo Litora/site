@@ -2,29 +2,57 @@
 import LitoraLogo from "#assets/litora-logo.svg";
 ---
 
-<style is:inline>
-	body > footer.wrapper {
+<style lang="scss">
+	@use "#variables.scss" as *;
+
+	footer.main {
 		padding: 50px 20px;
 		background-color: rgb(13, 13, 13);
+		display: grid;
+		overflow: hidden;
+		grid-template-columns:
+			$grid-template-columns;
+    background-color: var(--color);
+
+		& > :global(*) {
+			grid-column: 2;
+		}
 	}
 
-	body > footer.wrapper > div > ul {
+	footer.main > div > ul {
 		list-style: none;
 
 		li {
 			line-height: 1.4lh;
 		}
 	}
+
+	footer.license {
+		padding: 20px;
+		background-color: $color-primary;
+		text-align: center;
+		font-size: 0.9rem;
+		color: $color-background;
+
+		& > a {
+			text-decoration: underline;
+			font-weight: 500;
+		}
+	}
 </style>
 
-<footer class="wrapper">
+<footer class="main">
 	<div>
 		<LitoraLogo
 			style={"height: 2lh; width: auto; aspect-ratio: 1401/307; margin-bottom: 20px"}
 		/>
 		<ul>
-			<li><a href="https://github.com/Litora/site">GitHub</a></li>
-			<li><a href="https://github.com/angelraymondi">AngelRaymondi</a></li>
+			<li><a href="https://github.com/Litora">Litora Project</a></li>
 		</ul>
 	</div>
+</footer>
+<footer class="license">
+	© 2025 Litora — Licensed under <a
+		href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+		>CC BY-NC-SA 4.0</a>
 </footer>

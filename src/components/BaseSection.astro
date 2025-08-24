@@ -12,13 +12,13 @@ const { color } = Astro.props;
 </section>
 
 <style lang="scss">
+	@use "#variables.scss" as *;
+
 	section {
 		display: grid;
 		overflow: hidden;
 		grid-template-columns:
-			1fr
-			min(1200px, 100%)
-			1fr;
+			$grid-template-columns;
     background-color: var(--color);
 
 		& > :global(*) {
