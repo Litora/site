@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import VolumeSlider from "./VolumeSlider";
 import "./Effect.scss";
 import type { EffectStatus } from "@i18n/types";
@@ -54,11 +54,17 @@ export default function Effect({
 		? effectStatus.playing
 		: effectStatus.paused;
 
+	const litIcon = hasInteracted && !isLoading && volume > 0;
+
 	function volumesDiffer(a: number, b: number) {
 		return Math.abs(a - b) > 0.005;
 	}
 
-	async function fadeVolume(audio: HTMLAudioElement, to: number, duration: number) {
+	async function fadeVolume(
+		audio: HTMLAudioElement,
+		to: number,
+		duration: number
+	) {
 		if (!$) {
 			$ = (await import("jquery")).default;
 		}
@@ -173,7 +179,9 @@ export default function Effect({
 
 	return (
 		<div className="effect">
-			<div className="icon-container">{children}</div>
+			<div className={["icon-container", litIcon ? "lit" : ""].join(" ")}>
+				{children}
+			</div>
 			<h1 className="effect-title">{effectTitle}</h1>
 			<div className="audio-container">
 				<audio ref={audioRef} preload="none" style={{ display: "none" }} />

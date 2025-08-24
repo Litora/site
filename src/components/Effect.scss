@@ -1,3 +1,5 @@
+@use "./../styles/variables.scss" as *;
+
 .effect {
 	padding: 20px 0;
 	display: grid;
@@ -7,7 +9,7 @@
 
 .effect > h1.effect-title {
 	font-size: 1.3em;
-	font-weight: 700;
+	font-weight: 600;
 	text-align: center;
 	margin-bottom: 7px;
 }
@@ -25,7 +27,14 @@
 .effect > .icon-container {
 	text-align: center;
 }
+
 .effect > .icon-container svg {
-	width: 4.5lh;
-	height: 4.5lh;
+	width: 5lh;
+	height: 5lh;
+	transition: fill 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.effect > .icon-container.lit svg {
+	fill: $color-primary;
+	filter: drop-shadow($shadow-primary-30-t);
 }

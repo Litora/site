@@ -66,18 +66,25 @@ export default function VolumeSlider({
 
 	return (
 		<div className="volume-slider">
-			<div className="slider-container" data-slider-zero={percentage === 0 ? "zero" : "nonzero"}>
+			<div
+				className="slider-container"
+				data-slider-zero={percentage === 0 ? "zero" : "nonzero"}
+				style={
+					{
+						"--progress-width": `calc(${percentage} * (100% - 25px))`,
+					} as React.CSSProperties
+				}>
+				<div
+					className="slider-thumb"
+					ref={thumbRef}
+					onPointerDown={handlePointerDown}
+				/>
 				<div
 					className="slider-track"
 					ref={trackRef}
 					onPointerDown={handlePointerDown}
 				/>
-				<div
-					className="slider-thumb"
-					ref={thumbRef}
-					style={{ left: `calc(${percentage} * (100% - 16px))` }}
-					onPointerDown={handlePointerDown}
-				/>
+				<div className="slider-track-active"></div>
 			</div>
 			<p className="current-volume">{Math.round(percentage * 100)}%</p>
 		</div>
