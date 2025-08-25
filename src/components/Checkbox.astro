@@ -1,0 +1,61 @@
+---
+import CheckIcon from "./icons/Check.astro";
+
+interface Props {
+	id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div class="checkbox-group">
+	<input type="checkbox" id={id} class="hidden" hidden="true" />
+	<label for={id}>
+		<div class="checkbox" tabindex={0}>
+			<CheckIcon />
+		</div><span><slot>Lorem ipsum dolor sit amet.</slot></span>
+	</label>
+</div>
+
+<style lang="scss">
+	@use "#variables.scss" as *;
+	@use "sass:math";
+	@use "#styles/mixins/focus-outline" as *;
+
+	.checkbox {
+		width: 25px;
+		height: 25px;
+		border: 2px solid $color-primary;
+		border-radius: 6px;
+		position: relative;
+		cursor: pointer;
+		display: grid;
+		place-content: center;
+
+		@include focus-outline($color-primary);
+
+		& > :global(svg) {
+			opacity: 0;
+			fill: $color-surface;
+			width: 25px;
+			height: 25px;
+		}
+	}
+
+	label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+		user-select: none;
+		color: $color-text-muted;
+	}
+
+	input[type="checkbox"]:checked + label > .checkbox {
+		background-color: $color-primary;
+
+		& > :global(svg) {
+			opacity: 1;
+		}
+	}
+</style>

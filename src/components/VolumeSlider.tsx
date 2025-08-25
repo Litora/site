@@ -78,6 +78,7 @@ export default function VolumeSlider({
 					className="slider-thumb"
 					ref={thumbRef}
 					onPointerDown={handlePointerDown}
+					tabIndex={0}
 				/>
 				<div
 					className="slider-track"

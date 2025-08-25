@@ -1,0 +1,32 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+
+}
+
+const props = Astro.props;
+---
+
+<input {...props} autocomplete={props.autocomplete ?? "off"} />
+
+<style lang="scss">
+  @use "#variables.scss" as *;
+  @use "#styles/mixins/focus-outline.scss" as *;
+
+  input {
+    width: 100%;
+    padding: 15px;
+
+    @include focus-outline($color-primary);
+
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+</style>

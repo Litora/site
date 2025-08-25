@@ -1,4 +1,6 @@
 @use "variables" as *;
+@use "mixins/focus-outline" as *;
+@use "sass:color";
 
 @font-face {
 	font-family: "Inter";
@@ -13,7 +15,7 @@
 }
 
 ::selection {
-	background-color: rgba(0, 119, 255, 0.6);
+	background-color: color.adjust($color-primary, $alpha: -0.6);
 }
 
 html {
@@ -79,6 +81,28 @@ h6 {
 a {
 	color: inherit;
 	text-decoration: inherit;
+	position: relative;
+}
+
+a:not(.litora-button) {
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 8px;
+		pointer-events: none;
+
+		@include focus-outline(white);
+		outline-offset: 50px 3px 20px 0px;
+	}
+
+	&:focus-visible {
+		outline: none;
+	}
 }
 
 p {

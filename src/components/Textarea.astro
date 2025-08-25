@@ -1,0 +1,32 @@
+---
+interface Props extends astroHTML.JSX.TextareaHTMLAttributes {}
+
+const props = Astro.props;
+---
+
+<textarea {...props}></textarea>
+
+<style lang="scss">
+  @use "#variables.scss" as *;
+  @use "#styles/mixins/focus-outline.scss" as *;
+
+  textarea {
+    width: 100%;
+    padding: 15px;
+    min-height: 150px;
+    resize: vertical;
+
+    @include focus-outline($color-primary);
+
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+</style>

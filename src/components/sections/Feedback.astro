@@ -1,0 +1,51 @@
+---
+import BaseSection from "@components/BaseSection.astro";
+import Button from "@components/Button.astro";
+import Input from "@components/Input.astro";
+import Checkbox from "@components/Checkbox.astro";
+import Textarea from "@components/Textarea.astro";
+---
+
+<BaseSection color="#0f0f0f">
+	<div class="base-section__container">
+		<h1>We want to hear from you</h1>
+		<p>
+			Give us your feedback about Litora. We'll take all your comments into
+			account!
+		</p>
+		<form action="/">
+			<Input type="text" placeholder="John Doe" />
+			<Input type="email" placeholder="me@example.com" />
+			<Textarea placeholder="I love so much ... but I would like ..." />
+			<Checkbox id="feedback_terms"
+				>I grant the right to use the data provided for the purpose of using it
+				as my personal review.</Checkbox
+			>
+			<Button>Subscribe</Button>
+		</form>
+	</div>
+</BaseSection>
+
+<style lang="scss">
+	.base-section__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 60px 0;
+
+		h1 {
+			color: white;
+			text-align: center;
+		}
+	}
+
+	form {
+		width: 100%;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		margin-top: 40px;
+	}
+</style>

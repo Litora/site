@@ -23,6 +23,7 @@ const { href, label } = Astro.props;
 
 <style lang="scss">
 	@use "#variables.scss" as *;
+	@use "#styles/mixins/focus-outline" as *;
 
 	.container-button {
 		display: inline-block;
@@ -39,17 +40,18 @@ const { href, label } = Astro.props;
 		background-color: $color-primary;
 		border: none;
 		letter-spacing: 0.02rem;
+		font-size: 1rem;
+		font-family: inherit;
 		font-weight: 600;
 		margin-block: 10px;
 		color: $color-on-primary;
+
+		@include focus-outline($color-primary);
+
 		transition:
 			box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
 			outline-color 0.15s cubic-bezier(0.165, 0.84, 0.44, 1),
 			transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-		outline-color: transparent;
-		outline-width: 4px;
-		outline-offset: 4px;
-		outline-style: solid;
 
 		&:hover {
 			box-shadow: $shadow-primary-30;
@@ -58,7 +60,6 @@ const { href, label } = Astro.props;
 
 		&:focus-visible {
 			box-shadow: $shadow-primary-30;
-			outline-color: $color-primary;
 		}
 	}
 </style>

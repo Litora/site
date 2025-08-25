@@ -1,0 +1,9 @@
+@mixin focus-outline($color: transparent, $width: 4px, $offset: 4px) {
+	outline: $width solid transparent;
+	outline-offset: $offset;
+	transition: outline-color 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	&:focus-visible {
+		outline-color: $color;
+	}
+}

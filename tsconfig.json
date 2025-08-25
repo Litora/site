@@ -11,6 +11,7 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@i18n/*": ["src/i18n/*"],
 			"#assets/*": ["src/assets/*"],
+			"#styles/*": ["src/styles/*"],
 			"#global.scss": ["src/styles/global.scss"],
 			"#variables.scss": ["src/styles/variables.scss"],
 		}
